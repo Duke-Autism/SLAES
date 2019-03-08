@@ -2,6 +2,10 @@ const express = require("express");
 const http = require("http");
 const socketIO = require("socket.io");
 
+//Figure out the connection string
+
+var test = null;
+
 var connection_string = "**********";
 // Connection string of MongoDb database hosted on Mlab or locally
 // Collection name should be "FoodItems", only one collection as of now.
@@ -84,7 +88,7 @@ io.on("connection", socket => {
 /* Below mentioned steps are performed to return the Frontend build of create-react-app from build folder of backend */
 
 app.use(express.static("build"));
-app.use("/admin/dashboard", express.static("build"));
+app.use("/kitchen", express.static("build"));
 app.use("/updatepredicted", express.static("build"));
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
