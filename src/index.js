@@ -1,24 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createBrowserHistory } from "history";
-import { Router, Route, Switch, Redirect } from "react-router-dom";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+/* Using BrowserRouter to handle dynamic requests from Express Server */
+import { BrowserRouter } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-import AuthLayout from "layouts/Auth/Auth.jsx";
-import AdminLayout from "layouts/Admin/Admin.jsx";
-
-import "bootstrap/dist/css/bootstrap.css";
-import "assets/scss/paper-dashboard.scss";
-import "assets/demo/demo.css";
-
-const hist = createBrowserHistory();
-
+/* Router components expects to only contain one child component that's why combining everything in App and importing the same */
 ReactDOM.render(
-  <Router history={hist}>
-    <Switch>
-      <Route path="/auth" render={props => <AuthLayout {...props} />} />
-      <Route path="/admin" render={props => <AdminLayout {...props} />} />
-      <Redirect from="/" to="/admin/dashboard" />
-    </Switch>
-  </Router>,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById("root")
 );
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: http://bit.ly/CRA-PWA
+serviceWorker.unregister();

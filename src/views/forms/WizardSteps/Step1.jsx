@@ -11,7 +11,7 @@ import {
 } from "reactstrap";
 
 // core components
-import PictureUpload from "components/CustomUpload/PictureUpload.jsx";
+// import PictureUpload from "components/CustomUpload/PictureUpload.jsx";
 
 class Wizard extends React.Component {
   constructor(props) {
@@ -88,9 +88,6 @@ class Wizard extends React.Component {
           Let's start with the basic information (with validation)
         </h5>
         <Row className="justify-content-center">
-          <Col sm="4">
-            <PictureUpload />
-          </Col>
           <Col sm="6">
             <InputGroup
               className={classnames(this.state.firstnameState, {
