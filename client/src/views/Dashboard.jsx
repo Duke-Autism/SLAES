@@ -28,6 +28,14 @@ const AE = props => (
 )
 
 
+const Participant = props => (
+    <tr>
+        <td>{props.slaes}</td>
+    </tr>
+)
+
+
+
 class Dashboard extends React.Component {
 
       constructor(props) {
@@ -47,9 +55,17 @@ class Dashboard extends React.Component {
 
       slaesList() {
           return this.state.slaes.map(function(currentSlaes, i){
-              return <AE slaes={currentSlaes} key={i} />;
+            return <AE slaes={currentSlaes} key={i} />;
           })
       }
+
+
+      participantList() {
+           return this.state.slaes.map(function(currentPartcipant, i){
+            return currentPartcipant.participant.map(function(current, i){
+              return <Participant slaes={current.uniqueID} key={i} />
+            })
+      })}
 
 
   render() {
@@ -72,86 +88,7 @@ class Dashboard extends React.Component {
                   </Col>
                   <Col md="6">
                     <Table className="table-hover">
-                      <tbody>
-                        <tr>
-                          <td>
-                            <div className="flag">
-                              <img
-                                alt="..."
-                                src={require("../assets/img/flags/US.png")}
-                              />
-                            </div>
-                          </td>
-                          <td>USA</td>
-                          <td className="text-right">2.920</td>
-                          <td className="text-right">53.23%</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div className="flag">
-                              <img
-                                alt="..."
-                                src={require("../assets/img/flags/DE.png")}
-                              />
-                            </div>
-                          </td>
-                          <td>Germany</td>
-                          <td className="text-right">1.300</td>
-                          <td className="text-right">20.43%</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div className="flag">
-                              <img
-                                alt="..."
-                                src={require("../assets/img/flags/AU.png")}
-                              />
-                            </div>
-                          </td>
-                          <td>Australia</td>
-                          <td className="text-right">760</td>
-                          <td className="text-right">10.35%</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div className="flag">
-                              <img
-                                alt="..."
-                                src={require("../assets/img/flags/GB.png")}
-                              />
-                            </div>
-                          </td>
-                          <td>United Kingdom</td>
-                          <td className="text-right">690</td>
-                          <td className="text-right">7.87%</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div className="flag">
-                              <img
-                                alt="..."
-                                src={require("../assets/img/flags/RO.png")}
-                              />
-                            </div>
-                          </td>
-                          <td>Romania</td>
-                          <td className="text-right">600</td>
-                          <td className="text-right">5.94%</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div className="flag">
-                              <img
-                                alt="..."
-                                src={require("../assets/img/flags/BR.png")}
-                              />
-                            </div>
-                          </td>
-                          <td>Brasil</td>
-                          <td className="text-right">550</td>
-                          <td className="text-right">4.34%</td>
-                        </tr>
-                      </tbody>
+                      <tbody>{this.participantList()}</tbody>
                     </Table>
                   </Col>
                 </Row>
