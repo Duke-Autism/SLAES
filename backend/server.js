@@ -1,22 +1,17 @@
-const express = require('express');
+const express = require('express')
 const app = express();
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const slaesRoutes = express.Router();
 const PORT = 4000;
 require('dotenv').config()
-const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const dbConnection = require('./db') // loads our connection to the mongo database
 const passport = require('./passport')
-const app = express()
-
-
-let Slaes = require('./data');
+let Slaes = require('./db/models/data');
 
 // this is our MongoDB database
 app.use(cors());

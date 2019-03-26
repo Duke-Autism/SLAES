@@ -1,5 +1,4 @@
 
-import Calendar from "./views/Calendar.jsx";
 import Dashboard from "./views/Dashboard.jsx";
 import Login from "./views/pages/Login.jsx";
 import ReactTables from "./views/tables/ReactTables.jsx";
@@ -49,13 +48,6 @@ const routes = [{
         layout: "/admin"
       }
     ]
-  },
-  {
-    path: "/calendar",
-    name: "Calendar",
-    icon: "nc-icon nc-calendar-60",
-    component: Calendar,
-    layout: "/admin"
   }
 ]
 
