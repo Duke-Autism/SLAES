@@ -4,8 +4,8 @@ import ReactDOM from "react-dom";
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
-import LoginForm from './components/Login/LoginForm'
-import AuthLayout from "./layouts/Auth/Auth.jsx";
+// import LoginForm from './components/Login/LoginForm'
+import LoginForm from "./layouts/Auth/Auth.jsx";
 import AdminLayout from "./layouts/Admin/Admin.jsx";
 
 // import "bootstrap/dist/css/bootstrap.css";
@@ -96,9 +96,11 @@ class App extends Component {
       <div className="App">
       <Router history={hist}>
       <Switch>
-        <Route path="/login" render={props => <AuthLayout {...props} />} />
-        // <Route path="/admin" render={props => <AdminLayout {...props} />} />
-        <PrivateRoute loggedIn={this.state.loggedIn} path='/dashboard' component={AdminLayout} />
+        <Route exact path="/login"
+          render={() => <LoginForm _login={this._login} _googleSignin={this._googleSignin}
+                    />}
+          />
+        <PrivateRoute loggedIn={this.state.loggedIn} path='/admin/dashboard' component={AdminLayout} />
       </Switch>
       </Router>
       </div>
