@@ -1,6 +1,6 @@
 
 import Dashboard from "./views/Dashboard.jsx";
-import Login from "./views/pages/Login.jsx";
+// import Login from "./views/pages/Login.jsx";
 import ReactTables from "./views/tables/ReactTables.jsx";
 import Wizard from "./views/forms/Wizard.jsx";
 import Charts from "./views/Charts.jsx"
